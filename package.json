@@ -1,5 +1,5 @@
 {
-  "name": "dg.dealalerts",
+  "name": "hukd-notifier",
   "version": "1.0.0",
   "description": "A repository for alerting the user to new deals",
   "main": "dist/index.js",
