@@ -1,4 +1,6 @@
-# hukd-notifier
+# HUKD Notifier
+
+[![License](https://img.shields.io/github/license/kibblator/hukd-notifier.svg)](https://github.com/kibblator/hukd-notifier/blob/main/LICENSE)
 
 A small containerised node app to alert the user when they have a new deal available in their HUKD RSS Feed
 
@@ -7,7 +9,7 @@ A small containerised node app to alert the user when they have a new deal avail
 ### Without custom CRON schedules
 
 ```
-$ docker run -p 3000:3000 --restart=always -d --name hukd-notifier -e RSS_FEED_URL="$RSS_FEED_URL" -e TELEGRAM_BOT_TOKEN="$TELEGRAM_BOT_TOKEN" -e TELEGRAM_CHAT_ID="$TELEGRAM_CHAT_ID" -e TZ="Europe/London" -v /your/host/dir:/usr/src/app/database {{repo name}}
+$ docker run -p 3000:3000 --restart=always -d --name hukd-notifier -e RSS_FEED_URL="$RSS_FEED_URL" -e TELEGRAM_BOT_TOKEN="$TELEGRAM_BOT_TOKEN" -e TELEGRAM_CHAT_ID="$TELEGRAM_CHAT_ID" -e TZ="Europe/London" -v /your/host/dir:/usr/src/app/database kibblator/hukd-notifier
 ```
 
 By default if you don't set either of the CRON values they will be as follows:
@@ -19,7 +21,7 @@ By default if you don't set either of the CRON values they will be as follows:
 ### With custom CRON schedules
 
 ```
-$ docker run -p 3000:3000 --restart=always -d --name hukd-notifier -e RSS_FEED_URL="$RSS_FEED_URL" -e TELEGRAM_BOT_TOKEN="$TELEGRAM_BOT_TOKEN" -e TELEGRAM_CHAT_ID="$TELEGRAM_CHAT_ID" -e CLEANUP_CRON="0 0 * * *" -e DEAL_SCHEDULE_CRON="0 * * * *" -e TZ="Europe/London" -v /your/host/dir:/usr/src/app/database {{repo name}}
+$ docker run -p 3000:3000 --restart=always -d --name hukd-notifier -e RSS_FEED_URL="$RSS_FEED_URL" -e TELEGRAM_BOT_TOKEN="$TELEGRAM_BOT_TOKEN" -e TELEGRAM_CHAT_ID="$TELEGRAM_CHAT_ID" -e CLEANUP_CRON="0 0 * * *" -e DEAL_SCHEDULE_CRON="0 * * * *" -e TZ="Europe/London" -v /your/host/dir:/usr/src/app/database kibblator/hukd-notifier
 ```
 
 ## Getting a Telegram Bot token
@@ -33,7 +35,7 @@ In order to obtain your RSS feed url, you need to go to https://www.hotukdeals.c
 <br>
 There should be a section called `My alerts` and at the bottom will be `My alert RSS feed`. Copy this link and use it for the `RSS_FEED_URL` environment variable
 
-![RSS feed link](docs/rssfeed.png)
+![RSS feed link](https://github.com/kibblator/hukd-notifier/blob/main/docs/rssfeed.png?raw=true)
 
 ## Setting up alerts
 
@@ -41,4 +43,4 @@ In the same area as above you can also setup new alerts using the **_New alert_*
 <br><br>
 Simply type in the keyword of what it is you're looking for and select the desired heat for getting notified. When something is found it'll be added to the RSS feed and therefore notified to you via the application
 
-![Create new alert](docs/newalert.png)
+![Create new alert](https://github.com/kibblator/hukd-notifier/blob/main/docs/newalert.png?raw=true)
