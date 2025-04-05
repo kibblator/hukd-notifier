@@ -18,6 +18,8 @@ By default if you don't set either of the CRON values they will be as follows:
 <br>
 `DEAL_SCHEDULE_CRON="0 * * * *"`
 
+The cleanup CRON is just to ensure that deals older than a month that have been seen before don't linger in the database (as they're not likely to be valid deals any longer anyway) and the deal schedule CRON is how often the app will look for new deals on the feed.
+
 ### With custom CRON schedules
 
 ```
@@ -44,3 +46,9 @@ In the same area as above you can also setup new alerts using the **_New alert_*
 Simply type in the keyword of what it is you're looking for and select the desired heat for getting notified. When something is found it'll be added to the RSS feed and therefore notified to you via the application
 
 ![Create new alert](https://github.com/kibblator/hukd-notifier/blob/main/docs/newalert.png?raw=true)
+
+## End result
+
+Once all setup you should regularly recieve deals to the chat group of your choice like below:
+
+![Notification](https://github.com/kibblator/hukd-notifier/blob/main/docs/notification.png?raw=true)
